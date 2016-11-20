@@ -1,2 +1,4 @@
-.idea/
-/cmake-build-debug/
+.pioenvs
+.clang_complete
+.gcc-flags.json
+.piolibdeps

@@ -19,4 +19,3 @@ void loop() {
         digitalWrite(ALERT_PIN, HIGH);
     }
 }
-
