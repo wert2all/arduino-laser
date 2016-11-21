@@ -1,11 +1,18 @@
 #include "Arduino.h"
-#include "classes/Controller.h"
+#include "classes/DetectorController.h"
+#include "classes/Detector/Collector.h"
+#include "classes/Alert/Alert.h"
+#include "classes/Detector/Detectors/Laser.h"
+#include "classes/Detector/Detectors/Hercon.h"
 
 #define ALERT_PIN 7
 #define DETECTOR_PIN 8
 #define RECEIVER_PIN 12
+#define HERCON_PIN 5
 
-Controller *cont = new Controller();
+DetectorController *controller = new DetectorController();
+Collector *detector = new Collector();
+Alert *alert = new Alert();
 
 void setup() {
     Serial.begin(38400);
@@ -15,14 +22,26 @@ void setup() {
     digitalWrite(RECEIVER_PIN, HIGH);
     digitalWrite(ALERT_PIN, LOW);
 
+    detector->addDetector(new Laser(RECEIVER_PIN, DETECTOR_PIN));
+    detector->addDetector(new Hercon(HERCON_PIN));
+
+
 }
 
 void loop() {
-    cont->checkAction();
-    if (cont->isOn()) {
-        int detectorValue = digitalRead(DETECTOR_PIN);
-        if (detectorValue == 0) {
-            digitalWrite(ALERT_PIN, HIGH);
+    controller->checkAction();
+    if (controller->isOn()) {
+        if (alert->isOff()) {
+            if (detector->isPenetration()) {
+                alert->turnOn();
+            }
         }
+//
+//        int detectorValue = digitalRead(DETECTOR_PIN);
+//        if (detectorValue == 0) {
+//            digitalWrite(ALERT_PIN, HIGH);
+//        }
+    } else {
+        alert->turnOff();
     }
 }

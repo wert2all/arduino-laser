@@ -2,7 +2,7 @@
 #define ARDUINO_LASER_CONTROLLER_H
 
 
-class Controller {
+class DetectorController {
 public:
     void checkAction();
 
