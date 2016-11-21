@@ -1,10 +1,7 @@
-//
-// Created by wert2all on 21.11.16.
-//
-
 #ifndef ARDUINO_LASER_ALERT_H
 #define ARDUINO_LASER_ALERT_H
 
+#include "Providers/Provider.h"
 
 class Alert {
 public:
@@ -13,6 +10,8 @@ public:
     void turnOn();
 
     void turnOff();
+
+    void addProvider(Provider *);
 };
 
 

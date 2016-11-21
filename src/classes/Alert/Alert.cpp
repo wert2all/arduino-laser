@@ -16,3 +16,7 @@ void Alert::turnOff() {
 void Alert::turnOn() {
 
 }
+
+void Alert::addProvider(Provider *) {
+
+}

@@ -4,6 +4,7 @@
 #include "classes/Alert/Alert.h"
 #include "classes/Detector/Detectors/Laser.h"
 #include "classes/Detector/Detectors/Hercon.h"
+#include "classes/Alert/Providers/AlertDiode.h"
 
 #define ALERT_PIN 7
 #define DETECTOR_PIN 8
@@ -25,7 +26,7 @@ void setup() {
     detector->addDetector(new Laser(RECEIVER_PIN, DETECTOR_PIN));
     detector->addDetector(new Hercon(HERCON_PIN));
 
-
+    alert->addProvider(new AlertDiode(ALERT_PIN));
 }
 
 void loop() {
