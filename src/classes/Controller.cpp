@@ -1,5 +1,9 @@
-//
-// Created by wert2all on 21.11.16.
-//
-
 #include "Controller.h"
+
+void Controller::checkAction() {
+
+}
+
+bool Controller::isOn() {
+    return false;
+}
