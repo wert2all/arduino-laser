@@ -11,6 +11,7 @@ void setup() {
     pinMode(RECEIVER_PIN, OUTPUT);
     digitalWrite(RECEIVER_PIN, HIGH);
     digitalWrite(ALERT_PIN, LOW);
+    new Controller();
 }
 
 void loop() {
