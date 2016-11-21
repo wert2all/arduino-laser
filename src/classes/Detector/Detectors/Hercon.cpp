@@ -1,12 +1,10 @@
-//
-// Created by wert2all on 21.11.16.
-//
-
 #include "Hercon.h"
+#include "Arduino.h"
 
 
 Hercon::Hercon(int herconPin) {
-
+    this->herconPin = herconPin;
+    pinMode(this->herconPin, INPUT);
 }
 
 bool Hercon::isPenetration() {

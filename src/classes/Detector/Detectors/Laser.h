@@ -12,6 +12,14 @@ public:
     Laser(int diodePim, int detectorPin);
 
     virtual bool isPenetration();
+
+    virtual void turnOn();
+
+    virtual void turnOff();
+
+protected:
+    int diodePin;
+    int detectorPin;
 };
 
 

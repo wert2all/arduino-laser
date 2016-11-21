@@ -17,11 +17,9 @@ Alert *alert = new Alert();
 
 void setup() {
     Serial.begin(38400);
-    pinMode(ALERT_PIN, OUTPUT);
     pinMode(DETECTOR_PIN, INPUT);
     pinMode(RECEIVER_PIN, OUTPUT);
     digitalWrite(RECEIVER_PIN, HIGH);
-    digitalWrite(ALERT_PIN, LOW);
 
     detector->addDetector(new Laser(RECEIVER_PIN, DETECTOR_PIN));
     detector->addDetector(new Hercon(HERCON_PIN));
@@ -33,6 +31,11 @@ void loop() {
     controller->checkAction();
     if (controller->isOn()) {
         if (alert->isOff()) {
+
+            if (detector->isOn()) {
+                detector->turnOn();
+            }
+
             if (detector->isPenetration()) {
                 alert->turnOn();
             }
@@ -44,5 +47,6 @@ void loop() {
 //        }
     } else {
         alert->turnOff();
+        detector->turnOff();
     }
 }

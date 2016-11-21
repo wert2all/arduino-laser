@@ -12,7 +12,13 @@ class Collector : public Detector {
 public:
     void addDetector(Detector *);
 
+    bool isOn();
+
     virtual bool isPenetration();
+
+    virtual void turnOn();
+
+    virtual void turnOff();
 };
 
 

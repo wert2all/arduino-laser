@@ -5,6 +5,10 @@
 class Detector {
 public:
     virtual bool isPenetration();
+
+    virtual void turnOn();
+
+    virtual void turnOff();
 };
 
 

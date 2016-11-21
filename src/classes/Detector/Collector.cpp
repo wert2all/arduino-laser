@@ -12,3 +12,15 @@ bool Collector::isPenetration() {
 void Collector::addDetector(Detector *) {
 
 }
+
+bool Collector::isOn() {
+    return false;
+}
+
+void Collector::turnOff() {
+
+}
+
+void Collector::turnOn() {
+
+}

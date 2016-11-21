@@ -12,6 +12,9 @@ public:
     AlertDiode(int ledPin);
 
     virtual void alert();
+
+protected:
+    int ledPin;
 };
 
 

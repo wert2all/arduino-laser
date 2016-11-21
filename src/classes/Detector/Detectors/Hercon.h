@@ -13,6 +13,9 @@ public:
     Hercon(int herconPin);
 
     virtual bool isPenetration();
+
+protected:
+    int herconPin;
 };
 
 
