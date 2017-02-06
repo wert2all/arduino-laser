@@ -41,7 +41,7 @@ byte hum[8] = //код иконки влажности
 };
 
 // Задаем адрес и размерность дисплея
-LiquidCrystal_I2C  lcd(0x3F,2,1,0,4,5,6,7);
+LiquidCrystal_I2C  lcd(0x27,2,1,0,4,5,6,7);
 
 void setup()
 {
@@ -53,12 +53,21 @@ void setup()
   lcd.createChar(1,temp);
   lcd.createChar(2,hum);
 
-dht.begin();
+  Serial.begin(9600);
+  dht.begin();
 }
 
 void loop() {
   float h = dht.readHumidity();
   float t = dht.readTemperature();
+
+
+  Serial.print("Humidity: ");
+   Serial.print(h);
+   Serial.print(" %\t");
+   Serial.print("Temperature: ");
+   Serial.print(t);
+   Serial.println(" *C ");
 
 // Выводим показания влажности и температуры
 
