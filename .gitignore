@@ -5,3 +5,4 @@ CMakeListsPrivate.txt
 .piolibdeps
 /cmake-build-debug/
 .idea/
+temp-monitor/lib/DHT-sensor-library

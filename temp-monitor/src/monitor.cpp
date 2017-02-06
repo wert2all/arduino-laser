@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Wire.h>
 #include <FastIO.h>
 #include <I2CIO.h>
 #include <LCD.h>
